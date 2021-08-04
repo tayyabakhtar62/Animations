@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <title>Sqaure Animation</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script >
+        $(document).ready(function(){
+        
+            var div1 = $("#sq1");  
+            div1.delay("4000");
+            div1.animate({left: '900px'}, "10000");
+            
+
+
+            var div2 = $("#sq2");  
+            div2.delay("4000");
+            div2.animate({right: '900px'}, "10000");
+
+            div1.animate(
+            { deg: 45 },
+            {
+            duration: 1200,
+            step: function(now) {
+                $(this).css({ transform: 'rotate(' + now + 'deg)' });
+            }
+            }
+        );
+        div1.delay("1000");
+        div1.animate(
+            { deg: 3555 },
+            {
+            duration: 10000,
+            step: function(now) {
+                $(this).css({ transform: 'rotate(' + now + 'deg)' });
+            }
+            }
+        );
+        div1.delay("1000");
+        div1.animate(
+            { deg: -3555 },
+            {
+            duration: 10000,
+            step: function(now) {
+                $(this).css({ transform: 'rotate(' + now + 'deg)' });
+            }
+            }
+        );
+        div1.delay("1000");
+        div1.fadeOut(3000);
+        div2.delay("25000");
+        div2.fadeOut(3000);
+        
+        });
+
+    </script>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        .sq1{
+            margin-top: 100px;
+            position: relative;
+            float: left;
+            width: 100px;
+            height: 100px;
+            animation: colorin 5s;
+            border: 1px solid black;
+            animation-fill-mode: forwards;
+            
+        }
+        .sq2{
+            margin-top: 100px;
+            position: relative;
+            float: right;
+            width: 100px;
+            height: 100px;
+            animation: colorin 5s;
+            border: 1px solid black;
+            animation-fill-mode: forwards;
+            
+        }
+        @keyframes colorin {
+            from {top: 0px;}
+            to {top: 0px; background-color: red; border: 0px;}
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="sq1" class="sq1"></div>
+    
+    <div id="sq2" class="sq2"></div>
+    
+</body>
+
+</html>
